@@ -11,6 +11,8 @@ module.exports = {
 
         if (!queue || !queue.playing) return message.channel.send(`No music currently playing ${message.author}... try again ? ❌`);
 
+        if (args.length < 1) return message.channel.send(`You need to specify a time ${message.author}... try again ? ❌`);
+
         const timeToMS = ms(args.join(' '));
 
         if (timeToMS >= queue.current.durationMS) return message.channel.send(`The indicated time is higher than the total time of the current song ${message.author}... try again ? ❌\n*Try for example a valid time like **5s, 10s, 20 seconds, 1m**...*`);
